@@ -1,7 +1,0 @@
-info ={
-    "name" : "aadiya kumar",
-    "subjects" : "["python","c","java"],
-    "topics" : "["dict","tuple","list"],
-    "age": 22
-}
-print(info)
