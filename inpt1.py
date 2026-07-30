@@ -1,5 +1,0 @@
-a = int(input("Enter the first number : "))
-b = int(input("Enter the 2 number : "))
-print("number a is : ",a)
-print("Number b is :  ",b)
-print("sum is: ",a+b)
