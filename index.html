@@ -5,9 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#101a35">
-  <meta name="author" content="Aaditya Kumar">
-  <meta name="description" content="WeatherCast is a weather dashboard created by Aaditya Kumar, B.Tech Computer Science and Engineering student at IIMT College of Engineering.">
-  <title>WeatherCast | Aaditya Kumar</title>
+  <title>WeatherCast | AADITYA KUMAR</title>
 
   <style>
     * {
@@ -18,8 +16,8 @@
 
     :root {
       --bg: #0b1226;
-      --panel: rgba(255, 255, 255, .075);
-      --border: rgba(255, 255, 255, .12);
+      --panel: rgba(255,255,255,.075);
+      --border: rgba(255,255,255,.12);
       --text: #f5f7ff;
       --muted: #a8b4d0;
       --accent: #8cb4ff;
@@ -29,19 +27,10 @@
       min-height: 100vh;
       color: var(--text);
       background:
-        radial-gradient(ellipse at 10% 0%, #243d72 0, transparent 42%),
-        radial-gradient(ellipse at 95% 70%, #263366 0, transparent 35%),
+        radial-gradient(ellipse at 10% 0%, #243d72, transparent 42%),
+        radial-gradient(ellipse at 95% 70%, #263366, transparent 35%),
         var(--bg);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
-        BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    button, input {
-      font: inherit;
-    }
-
-    button {
-      cursor: pointer;
+      font-family: Arial, sans-serif;
     }
 
     .container {
@@ -54,131 +43,142 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 16px;
-      margin-bottom: 34px;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 35px;
     }
 
     .brand {
-      font-size: 23px;
+      font-size: 25px;
       font-weight: 800;
-      letter-spacing: -.7px;
     }
 
     .brand span {
       color: var(--accent);
     }
 
-    .tag {
+    .profile {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .profile-item {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .profile-icon {
+      font-size: 25px;
+    }
+
+    .profile-label {
       color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    .profile-value {
       font-size: 13px;
+      font-weight: bold;
     }
 
     .search {
       display: flex;
       gap: 10px;
-      width: 100%;
       max-width: 620px;
-      margin: 0 auto 24px;
+      margin: 0 auto 20px;
     }
 
     input {
       min-width: 0;
       flex: 1;
-      padding: 15px 18px;
+      padding: 15px;
       color: white;
       background: var(--panel);
       border: 1px solid var(--border);
       border-radius: 14px;
       outline: none;
+      font-size: 16px;
     }
 
     input:focus {
       border-color: var(--accent);
     }
 
-    input::placeholder {
-      color: var(--muted);
-    }
-
-    .btn {
+    button {
+      padding: 14px 22px;
       border: 0;
       border-radius: 14px;
-      padding: 14px 20px;
-      color: #101a35;
       background: #a9c8ff;
-      font-weight: 750;
-      transition: transform .2s, opacity .2s;
+      color: #101a35;
+      font-weight: bold;
+      cursor: pointer;
     }
 
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn:disabled {
+    button:disabled {
       opacity: .6;
-      cursor: wait;
     }
 
     .message {
-      min-height: 22px;
+      min-height: 25px;
+      margin-bottom: 15px;
       text-align: center;
       color: var(--muted);
       font-size: 14px;
-      margin: 0 auto 16px;
     }
 
-    .message.error {
+    .error {
       color: #ff9eac;
     }
 
     .panel {
       background: var(--panel);
       border: 1px solid var(--border);
-      border-radius: 24px;
-      backdrop-filter: blur(14px);
+      border-radius: 22px;
     }
 
     .hero {
       padding: 30px;
       display: grid;
       grid-template-columns: 1.2fr .8fr;
-      gap: 24px;
+      gap: 20px;
       align-items: center;
-      margin-bottom: 22px;
     }
 
     .eyebrow {
       color: var(--accent);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      letter-spacing: 1.8px;
-      font-size: 11px;
-      font-weight: 800;
     }
 
     h1 {
-      font-size: clamp(27px, 5vw, 42px);
-      margin: 12px 0 5px;
+      font-size: clamp(26px, 4vw, 42px);
+      margin: 15px 0;
     }
 
-    .date, .muted {
+    .muted,
+    .date,
+    .stat-label {
       color: var(--muted);
     }
 
     .temperature {
-      font-size: clamp(64px, 12vw, 100px);
-      font-weight: 750;
-      letter-spacing: -6px;
-      line-height: 1.15;
+      font-size: clamp(65px, 10vw, 100px);
+      font-weight: bold;
+      line-height: 1.2;
     }
 
     .description {
       font-size: 18px;
-      margin: 10px 0 8px;
-    }
-
-    .feels {
-      color: var(--muted);
-      font-size: 14px;
+      margin: 10px 0;
     }
 
     .hero-right {
@@ -186,17 +186,16 @@
     }
 
     .weather-icon {
-      font-size: 88px;
-      line-height: 1.4;
+      font-size: 85px;
+      margin-bottom: 10px;
     }
 
     .high-low {
-      color: var(--muted);
-      margin-top: 4px;
+      margin-top: 8px;
     }
 
     .section-title {
-      font-size: 19px;
+      font-size: 20px;
       margin: 28px 0 15px;
     }
 
@@ -204,33 +203,27 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 14px;
-      margin-bottom: 26px;
     }
 
     .stat {
-      padding: 21px;
-    }
-
-    .stat-label {
-      color: var(--muted);
-      font-size: 13px;
+      padding: 20px;
     }
 
     .stat-icon {
-      font-size: 22px;
+      font-size: 25px;
       margin-bottom: 15px;
     }
 
     .stat-value {
       font-size: 24px;
-      font-weight: 750;
+      font-weight: bold;
       margin-top: 8px;
     }
 
     .stat-unit {
-      font-size: 13px;
       color: var(--muted);
-      font-weight: 400;
+      font-size: 13px;
+      font-weight: normal;
     }
 
     .forecast {
@@ -244,235 +237,84 @@
       padding: 20px 10px;
     }
 
-    .day-name {
-      font-weight: 700;
-      font-size: 14px;
-    }
-
     .day-icon {
-      font-size: 34px;
-      margin: 15px 0 10px;
+      font-size: 32px;
+      margin: 15px 0;
     }
 
     .day-desc {
-      font-size: 11px;
       color: var(--muted);
-      min-height: 28px;
+      font-size: 12px;
+      min-height: 30px;
     }
 
     .day-temp {
       margin-top: 12px;
-      font-weight: 750;
+      font-weight: bold;
     }
 
     .day-temp span {
       color: var(--muted);
-      font-weight: 400;
+      font-weight: normal;
     }
 
-    /* Developer profile */
-
-    .developer-card {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      padding: 30px;
-      margin-top: 38px;
-      background:
-        linear-gradient(
-          135deg,
-          rgba(140, 180, 255, .14),
-          rgba(255, 255, 255, .035)
-        );
-      box-shadow: 0 15px 40px rgba(0, 0, 0, .12);
-    }
-
-    .developer-avatar {
-      width: 96px;
-      height: 96px;
-      flex-shrink: 0;
-      display: grid;
-      place-items: center;
-      border-radius: 26px;
-      background: linear-gradient(135deg, #a9c8ff, #657cf0);
-      color: #101a35;
-      font-size: 32px;
-      font-weight: 850;
-      box-shadow: 0 8px 28px rgba(100, 130, 255, .22);
-    }
-
-    .developer-info {
-      min-width: 0;
-    }
-
-    .developer-info h2 {
-      font-size: 26px;
-      margin: 9px 0;
-      letter-spacing: -.5px;
-    }
-
-    .developer-role {
-      color: var(--text);
-      font-size: 14px;
-      line-height: 1.8;
-    }
-
-    .developer-college {
-      color: var(--accent);
-      font-size: 14px;
-      font-weight: 750;
-      margin-top: 5px;
-    }
-
-    .developer-description {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.8;
-      margin-top: 12px;
-      max-width: 620px;
-    }
-
-    .developer-badge {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 7px 13px;
-      border: 1px solid rgba(140, 180, 255, .3);
-      border-radius: 30px;
-      color: var(--accent);
-      background: rgba(140, 180, 255, .07);
-      font-size: 12px;
-      font-weight: 750;
-    }
-
-    .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 15px;
-    }
-
-    .tech-item {
-      padding: 6px 10px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    .footer {
-      color: var(--muted);
+    footer {
       text-align: center;
+      color: var(--muted);
       font-size: 12px;
-      line-height: 1.9;
-      margin-top: 27px;
-    }
-
-    .footer strong {
-      color: var(--text);
+      line-height: 1.8;
+      margin-top: 30px;
     }
 
     .hidden {
-      display: none !important;
+      display: none;
     }
 
-    .loading {
-      opacity: .65;
-    }
-
-    @media (max-width: 700px) {
+    @media (max-width: 750px) {
       .container {
-        padding: 20px 14px 30px;
+        padding: 20px 14px;
       }
 
       header {
-        margin-bottom: 24px;
+        align-items: flex-start;
+        flex-direction: column;
       }
 
-      .tag {
-        display: none;
+      .profile {
+        flex-direction: column;
+        width: 100%;
       }
 
       .hero {
         grid-template-columns: 1fr;
-        padding: 23px;
+        padding: 22px;
       }
 
       .hero-right {
+        text-align: left;
         display: flex;
-        justify-content: center;
         align-items: center;
         gap: 18px;
-        text-align: left;
       }
 
       .weather-icon {
-        font-size: 65px;
+        font-size: 60px;
       }
 
       .stats {
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-      }
-
-      .stat {
-        padding: 16px;
       }
 
       .forecast {
         grid-template-columns: repeat(2, 1fr);
-      }
-
-      .day:last-child {
-        grid-column: 1 / -1;
-      }
-
-      .temperature {
-        font-size: 76px;
       }
 
       .search {
         gap: 7px;
       }
 
-      .btn {
-        padding: 12px 14px;
-      }
-
-      .developer-card {
-        padding: 22px;
-        gap: 18px;
-      }
-
-      .developer-avatar {
-        width: 76px;
-        height: 76px;
-        border-radius: 21px;
-        font-size: 26px;
-      }
-
-      .developer-info h2 {
-        font-size: 23px;
-      }
-    }
-
-    @media (max-width: 430px) {
-      .developer-card {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .developer-role {
-        font-size: 13px;
-      }
-
-      .forecast {
-        gap: 9px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        transition: none !important;
+      button {
+        padding: 12px;
       }
     }
   </style>
@@ -483,50 +325,77 @@
 
     <header>
       <div class="brand">☁ Weather<span>Cast</span></div>
-      <div class="tag">Weather insights at a glance</div>
+
+      <!-- STUDENT BASIC DETAILS -->
+      <div class="profile">
+
+        <div class="profile-item">
+          <span class="profile-icon">👤</span>
+          <div>
+            <div class="profile-label">Student Name</div>
+            <div class="profile-value">AADITYA KUMAR</div>
+          </div>
+        </div>
+
+        <div class="profile-item">
+          <span class="profile-icon">🎓</span>
+          <div>
+            <div class="profile-label">Course</div>
+            <div class="profile-value">B.TECH (CSE)</div>
+          </div>
+        </div>
+
+        <div class="profile-item">
+          <span class="profile-icon">🏫</span>
+          <div>
+            <div class="profile-label">College Name</div>
+            <div class="profile-value">
+              IIMT COLLEGE OF ENGINEERING
+            </div>
+          </div>
+        </div>
+
+      </div>
     </header>
 
+    <!-- CITY SEARCH -->
     <form class="search" id="searchForm">
       <input
         id="cityInput"
         type="search"
         placeholder="Enter a city, e.g. New Delhi"
-        aria-label="Search city"
         value="New Delhi"
+        aria-label="Search city"
         required
       >
-      <button class="btn" id="searchButton" type="submit">
-        Search
-      </button>
+      <button id="searchButton" type="submit">Search</button>
     </form>
 
-    <div class="message" id="message" role="status" aria-live="polite">
+    <div class="message" id="message" role="status">
       Loading weather...
     </div>
 
+    <!-- WEATHER INFORMATION -->
     <section id="weatherContent" class="hidden">
 
       <div class="panel hero">
         <div>
-          <div class="eyebrow">Current weather</div>
+          <div class="eyebrow">Current Weather</div>
           <h1 id="cityName">New Delhi</h1>
           <p class="date" id="dateText"></p>
 
           <div class="temperature">
-            <span id="temperature">--</span><span>°</span>
+            <span id="temperature">--</span>°
           </div>
 
           <div class="description" id="description">--</div>
-
-          <p class="feels">
+          <p class="muted">
             Feels like <strong id="feelsLike">--</strong>°C
           </p>
         </div>
 
         <div class="hero-right">
-          <div class="weather-icon" id="mainIcon" aria-hidden="true">
-            🌤️
-          </div>
+          <div class="weather-icon" id="mainIcon">🌤️</div>
           <div>
             <p class="muted">Today's high / low</p>
             <p class="high-low">
@@ -537,9 +406,10 @@
         </div>
       </div>
 
-      <h2 class="section-title">Weather details</h2>
+      <h2 class="section-title">Weather Details</h2>
 
       <div class="stats">
+
         <article class="panel stat">
           <div class="stat-icon">💧</div>
           <p class="stat-label">Humidity</p>
@@ -551,7 +421,7 @@
 
         <article class="panel stat">
           <div class="stat-icon">💨</div>
-          <p class="stat-label">Wind speed</p>
+          <p class="stat-label">Wind Speed</p>
           <p class="stat-value">
             <span id="wind">--</span>
             <span class="stat-unit">km/h</span>
@@ -569,93 +439,31 @@
 
         <article class="panel stat">
           <div class="stat-icon">☀️</div>
-          <p class="stat-label">Rain chance</p>
+          <p class="stat-label">Rain Chance</p>
           <p class="stat-value">
             <span id="rainChance">--</span>
             <span class="stat-unit">%</span>
           </p>
         </article>
+
       </div>
 
-      <h2 class="section-title">5-day forecast</h2>
+      <h2 class="section-title">5-Day Forecast</h2>
       <div class="forecast" id="forecast"></div>
 
     </section>
 
-    <!-- Developer Profile -->
-
-    <section class="panel developer-card" aria-labelledby="developerName">
-
-      <div class="developer-avatar" aria-hidden="true">
-        AK
-      </div>
-
-      <div class="developer-info">
-        <p class="eyebrow">Meet the Developer</p>
-
-        <h2 id="developerName">Aaditya Kumar</h2>
-
-        <p class="developer-role">
-          B.Tech Student · Computer Science and Engineering (CSE)
-        </p>
-
-        <p class="developer-college">
-          IIMT College of Engineering
-        </p>
-
-        <p class="developer-description">
-          Passionate about software development, programming, web
-          technologies, and building useful applications through
-          technology. WeatherCast is a weather dashboard project
-          developed to demonstrate frontend development and API
-          integration skills.
-        </p>
-
-        <span class="developer-badge">
-          ☁ WeatherCast Project
-        </span>
-
-        <div class="tech-stack" aria-label="Technologies used">
-          <span class="tech-item">HTML5</span>
-          <span class="tech-item">CSS3</span>
-          <span class="tech-item">JavaScript</span>
-          <span class="tech-item">REST API</span>
-          <span class="tech-item">Open-Meteo</span>
-        </div>
-      </div>
-
-    </section>
-
-    <footer class="footer">
-      <p>
-        © <span id="currentYear"></span>
-        <strong>WeatherCast</strong> · All rights reserved.
-      </p>
-
-      <p>
-        Created by <strong>Aaditya Kumar</strong>
-      </p>
-
-      <p>
-        B.Tech CSE · IIMT College of Engineering
-      </p>
-
-      <p>
-        Built with HTML, CSS, JavaScript and Open-Meteo API.
-      </p>
-
-      <p>
-        Weather forecasts are estimates, not guarantees.
-      </p>
+    <footer>
+      <p>WeatherCast · Weather information for learning and demonstration</p>
+      <p>Powered by Open-Meteo · Forecasts are estimates, not guarantees.</p>
+      <p>Developed by AADITYA KUMAR | B.TECH (CSE)</p>
+      <p>IIMT COLLEGE OF ENGINEERING</p>
     </footer>
 
   </main>
 
   <script>
-    const $ = (id) => document.getElementById(id);
-
-    // Automatically display the current copyright year.
-    $("currentYear").textContent = new Date().getFullYear();
+    const $ = id => document.getElementById(id);
 
     const weatherTypes = {
       0: ["Clear sky", "☀️"],
@@ -693,32 +501,27 @@
         ["Conditions unavailable", "🌡️"];
     }
 
-    function showMessage(text, isError = false) {
-      $("message").textContent = text;
+    function showMessage(message, isError = false) {
+      $("message").textContent = message;
       $("message").classList.toggle("error", isError);
-    }
-
-    function formatDay(
-      dateString,
-      options = { weekday: "short" }
-    ) {
-      return new Date(dateString + "T12:00:00Z")
-        .toLocaleDateString("en-US", {
-          ...options,
-          timeZone: "UTC"
-        });
     }
 
     async function fetchJSON(url) {
       const response = await fetch(url);
 
       if (!response.ok) {
-        throw new Error(
-          "Weather service request failed. Please try again."
-        );
+        throw new Error("Weather service request failed.");
       }
 
       return response.json();
+    }
+
+    function formatDay(dateString) {
+      return new Date(dateString + "T12:00:00Z")
+        .toLocaleDateString("en-US", {
+          weekday: "short",
+          timeZone: "UTC"
+        });
     }
 
     async function loadWeather(city) {
@@ -726,12 +529,10 @@
 
       button.disabled = true;
       button.textContent = "Loading...";
-      $("weatherContent").classList.add("loading");
-
       showMessage("Finding weather for " + city + "...");
 
       try {
-        // Step 1: Find the city's geographic coordinates.
+        // Find city coordinates
         const geoURL = new URL(
           "https://geocoding-api.open-meteo.com/v1/search"
         );
@@ -746,14 +547,12 @@
         const geo = await fetchJSON(geoURL);
 
         if (!geo.results || !geo.results.length) {
-          throw new Error(
-            "City not found. Check the spelling and try again."
-          );
+          throw new Error("City not found. Check the spelling.");
         }
 
         const place = geo.results[0];
 
-        // Step 2: Request current conditions and a five-day forecast.
+        // Request weather forecast
         const forecastURL = new URL(
           "https://api.open-meteo.com/v1/forecast"
         );
@@ -761,7 +560,6 @@
         forecastURL.search = new URLSearchParams({
           latitude: place.latitude,
           longitude: place.longitude,
-
           current: [
             "temperature_2m",
             "relative_humidity_2m",
@@ -771,14 +569,12 @@
             "weather_code",
             "wind_speed_10m"
           ].join(","),
-
           daily: [
             "weather_code",
             "temperature_2m_max",
             "temperature_2m_min",
             "precipitation_probability_max"
           ].join(","),
-
           forecast_days: "5",
           timezone: "auto"
         });
@@ -786,27 +582,21 @@
         const data = await fetchJSON(forecastURL);
 
         if (!data.current || !data.daily) {
-          throw new Error(
-            "Weather data is unavailable for this location."
-          );
+          throw new Error("Weather data is unavailable.");
         }
 
         const current = data.current;
         const daily = data.daily;
-
         const [description, icon] =
           weatherInfo(current.weather_code);
 
-        // Step 3: Update the current weather dashboard.
         $("cityName").textContent = [
           place.name,
           place.admin1,
           place.country
-        ]
-          .filter((value, index, array) =>
-            value && array.indexOf(value) === index
-          )
-          .join(", ");
+        ].filter((value, index, array) =>
+          value && array.indexOf(value) === index
+        ).join(", ");
 
         $("dateText").textContent = "Local time: " +
           new Date().toLocaleString("en-US", {
@@ -840,15 +630,13 @@
         $("wind").textContent =
           Math.round(current.wind_speed_10m);
 
-        $("rain").textContent =
-          current.precipitation;
+        $("rain").textContent = current.precipitation;
 
         $("rainChance").textContent =
           daily.precipitation_probability_max[0] ?? "N/A";
 
-        // Step 4: Generate the five forecast cards.
-        const forecast = $("forecast");
-        forecast.replaceChildren();
+        // Build five-day forecast
+        $("forecast").replaceChildren();
 
         daily.time.forEach((date, index) => {
           const [desc, dayIcon] =
@@ -858,66 +646,54 @@
           card.className = "panel day";
 
           const name = document.createElement("div");
-          name.className = "day-name";
           name.textContent =
             index === 0 ? "Today" : formatDay(date);
 
           const iconElement = document.createElement("div");
           iconElement.className = "day-icon";
           iconElement.textContent = dayIcon;
-          iconElement.setAttribute("aria-label", desc);
 
-          const descriptionElement =
-            document.createElement("div");
-
+          const descriptionElement = document.createElement("div");
           descriptionElement.className = "day-desc";
           descriptionElement.textContent = desc;
 
-          const temperatureElement =
-            document.createElement("div");
-
-          temperatureElement.className = "day-temp";
-
-          temperatureElement.textContent =
+          const temp = document.createElement("div");
+          temp.className = "day-temp";
+          temp.textContent =
             Math.round(daily.temperature_2m_max[index]) + "° ";
 
           const low = document.createElement("span");
-
           low.textContent =
             Math.round(daily.temperature_2m_min[index]) + "°";
 
-          temperatureElement.appendChild(low);
+          temp.appendChild(low);
 
           card.append(
             name,
             iconElement,
             descriptionElement,
-            temperatureElement
+            temp
           );
 
-          forecast.appendChild(card);
+          $("forecast").appendChild(card);
         });
 
         $("weatherContent").classList.remove("hidden");
-
         showMessage("Weather updated successfully.");
 
       } catch (error) {
         showMessage(
           error.message ||
-          "Unable to load weather. Check your internet connection and try again.",
+          "Unable to load weather. Check your internet connection.",
           true
         );
       } finally {
         button.disabled = false;
         button.textContent = "Search";
-
-        $("weatherContent").classList.remove("loading");
       }
     }
 
-    // Search weather when the user submits the form.
-    $("searchForm").addEventListener("submit", (event) => {
+    $("searchForm").addEventListener("submit", event => {
       event.preventDefault();
 
       const city = $("cityInput").value.trim();
@@ -927,7 +703,7 @@
       }
     });
 
-    // Load the default city when the website opens.
+    // Load default city when the page opens
     loadWeather("New Delhi");
   </script>
 </body>
